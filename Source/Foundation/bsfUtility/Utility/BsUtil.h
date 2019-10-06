@@ -38,6 +38,7 @@ namespace bs
 	template<class T>
 	void bs_zero_out(T& s)
 	{
+		static_assert(std::is_pod<T>::value, "Struct must be POD to avoid undefined behavior");
 		std::memset(&s, 0, sizeof(T));
 	}
 
